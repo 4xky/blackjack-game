@@ -2,10 +2,10 @@
 //
 /*
    Blackjack is a card game where the objective is to have a hand with a higher value than the dealer's hand, without exceeding a total value of 21.
-The dealer deals two cards face up to each player and one card face up to themselves.
-The player must decide whether to "hit" (take another card) or "stand" (keep their current hand) in order to get as close to a total of 21 as possible without exceeding it.
-Once the player has finished their turn, the dealer reveals their face-down card and must hit until their hand totals 17 or more.
-If the dealer busts (goes over 21), all remaining players win. If not, the player with a hand closest to 21 without going over wins the game.
+   The dealer deals two cards face up to each player and one card face up to themselves.
+   The player must decide whether to "hit" (take another card) or "stand" (keep their current hand) in order to get as close to a total of 21 as possible without exceeding it.
+   Once the player has finished their turn, the dealer reveals their face-down card and must hit until their hand totals 17 or more.
+   If the dealer busts (goes over 21), all remaining players win. If not, the player with a hand closest to 21 without going over wins the game.
 */
 #include <iostream>
 #include <vector>
