@@ -110,7 +110,7 @@ public:
         playerMoney = startingMoney;
     }
     void startGame() {
-        cout << "Welcome to Blackjack!" << endl;
+        //cout << "Welcome to Blackjack!" << endl;
         while (playerMoney > 0) {
             cout << "You currently have $" << playerMoney << "." << endl;
             betAmount = getBet();
@@ -130,14 +130,20 @@ public:
         }
         cout << "You are out of money. Game over!" << endl;
     }
+
     int getBet() {
         int bet;
         while (true) {
             cout << "How much would you like to bet? (Minimum bet is $10)" << endl;
+            cout << "Type 0 to quit out of the game." << endl; //Added output message if user decides to quit the game.
             cin >> bet;
-            if (bet >= 10 && bet <= playerMoney) {
-                return bet;
+            if (bet == 0) { //Check if bet equals 0 before checking the other conditions to ensure the program exits immediatly if the player wants to quit, without accepting a bet of 0 as a valid bet. 
+                cout << "You have quit the game thanks for playing!" << endl; //If input is 0 the program will exit. 
+                exit(0); //exit() function is used to terminate program immediatly refardless of where it is in program.
             }
+            else if (bet >= 10 && bet <= playerMoney) {
+                return bet;
+            } 
             else {
                 cout << "Invalid bet amount. Please enter a bet between $10 and $" << playerMoney << "." << endl;
             }
@@ -153,9 +159,13 @@ public:
             char choice;
             while (true) {
                 cout << "Would you like to hit (h) or stand (s)?" << endl;
+                cout << "Type q to quit out of the game" <<endl; //Added output message if user decides to quit the game.
                 cin >> choice;
                 if (choice == 'h' || choice == 's') {
                     break;
+                } else if (choice == 'q' || choice == 'Q'){ //If the input is lower/upppercase q program will exit
+                    cout <<"You have quit the game thanks for playing!" << endl; //If input is 0 the program will exit.
+                    exit(0); //exit() function is used to terminate program immediatly refardless of where it is in program.
                 }
                 else {
                     cout << "Invalid input. Please enter 'h' for hit or 's' for stand." << endl;
@@ -209,9 +219,28 @@ public:
 };
 
 int main() {
-    Game game(500);
-    game.startGame();
-    return 0;
+    /*While loop that will display output including options for the user to play or quit the game.
+    if statments inside of our loop that will either start the game, quit the game, or if none of user inputs match criteria than the program will go back to the beginning of the loop until one of the conditions are met.*/
+    while (true) {
+        cout << "Welcome to Blackjack!" <<endl;
+        cout <<"Blackjack Menu:" <<endl;
+        cout << "P. Play" <<endl;
+        cout << "Q. Quit" <<endl;
+        char decide;
+        cin >> decide;
+        if (decide == 'p' || decide == 'P') {
+            Game game(500);
+            game.startGame();
+        } else if (decide == 'q' || decide == 'Q') {
+            cout << "You have quit the game thanks for playing!" <<endl;
+            return 0;
+        } else {
+            cout << "Invalid option, Please try again." <<endl;
+        }
+    }
+    //Game game(500);
+   // game.startGame();
+   // return 0;
 }
 
 
