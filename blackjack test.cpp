@@ -125,7 +125,6 @@ public:
         playerMoney = startingMoney;
     }
     void startGame() {
-        //cout << "Welcome to Blackjack!" << endl;
         while (playerMoney > 0) {
             cout << "You currently have $" << playerMoney << "." << endl;
             betAmount = getBet();
@@ -201,7 +200,7 @@ public:
         }
         return false;
     }
-   //Dealer/machine play function which outputs to the user the neccessary dealer information for gameplay
+   //The dealer algorithm play function which outputs to the user the neccessary dealer information for gameplay
     void dealerTurn() {
         while (dealerHand.getHandValue() < 17) {
             dealerHand.addCard(deck.dealCard());
