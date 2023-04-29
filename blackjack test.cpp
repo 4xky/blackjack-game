@@ -255,7 +255,5 @@ int main() {
             cout << "Invalid option, Please try again." <<endl;
         }
     }
-    //Game game(500);
-   // game.startGame();
-   // return 0;
+    
 }
