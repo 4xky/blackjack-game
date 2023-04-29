@@ -111,7 +111,7 @@ public:
         }
     }
 };
-//Created a class to call 2 randomly generated hands, inputted bets, and players entire money amount to begin the game
+//Created a class to call 2 randomly generated hands, inputted bets, and players given default money amount of $500 to begin the game
 //Gameplay functions included below
 class Game {
 private:
