@@ -1,5 +1,10 @@
-// blackjack test.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
+//Group 2 Final Project
+//Kyle Willhite, Hakeem Fessuh, Bosoon Karimi
+//CSC-132-01
+//Professor Kmir 
+
+//Purpose: Source code for users to play the Black-jack Card game using C++ code
+
 /*
    Blackjack is a card game where the objective is to have a hand with a higher value than the dealer's hand, without exceeding a total value of 21.
    The dealer deals two cards face up to each player and one card face up to themselves.
@@ -7,15 +12,23 @@
    Once the player has finished their turn, the dealer reveals their face-down card and must hit until their hand totals 17 or more.
    If the dealer busts (goes over 21), all remaining players win. If not, the player with a hand closest to 21 without going over wins the game.
 */
+
+// Run program: Ctrl + F5 or Debug > Start Without Debugging menu
+// Debug program: F5 or Debug > Start Debugging menu
+
+// Blackjack test.cpp : This file contains the 'main' function. Program execution begins and ends there.
+
+//Libraries needeed to run code are all listed here
 #include <iostream>
 #include <vector>
 #include <string>
 #include <algorithm>
 #include <ctime>
 #include <cstdlib>
-
+//for easier code management
 using namespace std;
 
+//Created a class to establish cards that can hold integer values within the game
 class Card {
 private:
     int value;
@@ -32,7 +45,7 @@ public:
         cout << name << endl;
     }
 };
-
+//Created a class, used void functions, and for loops to establish the deck that holds the cards and the values that will randomly be stored within them
 class Deck {
 private:
     vector<Card> cards;
@@ -63,7 +76,8 @@ public:
         return c;
     }
 };
-
+//Created a class with loops, if statements, and void functions being used to obtain and display a randomly generated hand
+//Seperated aces from the rest of the deck since they require user input if obtained
 class Hand {
 private:
     vector<Card> cards;
@@ -97,7 +111,8 @@ public:
         }
     }
 };
-
+//Created a class to call 2 randomly generated hands, inputted bets, and players entire money amount to begin the game
+//Gameplay functions included below
 class Game {
 private:
     Deck deck;
@@ -130,7 +145,7 @@ public:
         }
         cout << "You are out of money. Game over!" << endl;
     }
-
+//Loops and if statements to establish play, bet amount, player money, and associated errors 
     int getBet() {
         int bet;
         while (true) {
@@ -149,6 +164,7 @@ public:
             }
         }
     }
+   //Player game play function using if statments and loops to allow the user to input choices and play.
     bool playerTurn() {
         while (true) {
             cout << "Your hand:" << endl;
@@ -185,6 +201,7 @@ public:
         }
         return false;
     }
+   //Dealer/machine play function which outputs to the user the neccessary dealer information for gameplay
     void dealerTurn() {
         while (dealerHand.getHandValue() < 17) {
             dealerHand.addCard(deck.dealCard());
@@ -242,15 +259,3 @@ int main() {
    // game.startGame();
    // return 0;
 }
-
-
-// Run program: Ctrl + F5 or Debug > Start Without Debugging menu
-// Debug program: F5 or Debug > Start Debugging menu
-
-// Tips for Getting Started: 
-//   1. Use the Solution Explorer window to add/manage files
-//   2. Use the Team Explorer window to connect to source control
-//   3. Use the Output window to see build output and other messages
-//   4. Use the Error List window to view errors
-//   5. Go to Project > Add New Item to create new code files, or Project > Add Existing Item to add existing code files to the project
-//   6. In the future, to open this project again, go to File > Open > Project and select the .sln file
